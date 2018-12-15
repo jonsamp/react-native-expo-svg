@@ -1,0 +1,19 @@
+{
+  "name": "react-native-expo-svg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react-native-expo-svg": "./index.js"
+  },
+  "bin": {
+    "react-native-expo-svg": "./index.js"
+  },
+  "author": "Jon Samp",
+  "license": "ISC",
+  "dependencies": {
+    "lodash.startcase": "^4.4.0",
+    "svgo": "^1.1.1"
+  }
+}
