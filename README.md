@@ -20,7 +20,6 @@ this will output a new file named `TestIcon.js`, containing:
 
 ```js
 import React from "react";
-import PropTypes from "prop-types";
 import { Svg } from "expo";
 
 function TestIcon() {

@@ -96,7 +96,6 @@ fs.readFile(filename, "utf8", function(err, data) {
         ) + "Icon";
       const expoSvgComponent = `
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Svg } from 'expo';
 
 function ${IconName}() {
