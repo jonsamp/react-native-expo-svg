@@ -110,12 +110,9 @@ fs.readFile(filename, 'utf8', function(err, data) {
       console.log('');
     } else {
       const IconName =
-        startCase(
-          `${filename
-            .replace('.svg', '')
-            .replace(/-/g, '')
-            .replace(/\s+/g, '')}`
-        ) + 'Icon';
+        startCase(`${filename.replace('.svg', '')}`)
+          .replace(/-/g, '')
+          .replace(/\s+/g, '') + 'Icon';
       const expoSvgComponent = `
 import React from 'react';
 import { ${usedElements.join(', ')} } from 'react-native-svg'
