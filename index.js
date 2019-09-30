@@ -7,6 +7,9 @@ const svgo = new SVGO({
     {
       removeViewBox: false,
     },
+    {
+      removeAttrs: { attrs: '(xmlns|xlink)' },
+    },
   ],
 });
 
@@ -39,7 +42,6 @@ fs.readFile(filename, 'utf8', function(err, data) {
 
   svgo.optimize(data, { path: '' }).then(function(result) {
     const svg = result.data;
-
     if (svg.match(/\<filter/)) {
       console.log('🚨 Error');
       console.log(
@@ -96,8 +98,6 @@ fs.readFile(filename, 'utf8', function(err, data) {
 
     newsvg = newsvg
       .replace(/fill\-rule/g, 'fillRule')
-      .replace('xmlns="http://www.w3.org/2000/svg"', '')
-      .replace('xmlns:xlink="http://www.w3.org/1999/xlink"', '')
       .replace(/stroke-width/g, 'strokeWidth')
       .replace(/stroke-linecap/g, 'strokeLinecap')
       .replace(/stroke-linejoin/g, 'strokeLinejoin')
