@@ -130,9 +130,7 @@ export default ${IconName};
 `.trim();
       fs.writeFile(`${IconName}.js`, expoSvgComponent, 'utf8', function(err) {
         if (err) return console.log(err);
-        console.log('');
         console.log(`✨ Saved as ${IconName}.js`);
-        console.log('');
       });
     }
   });
