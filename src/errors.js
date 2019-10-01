@@ -27,7 +27,7 @@ function isSvgFileName(filename) {
   return true;
 }
 
-function hasOnlySupportedElements(svg) {
+function containsUnsupportedElements(svg) {
   unsupportedElements.forEach(unsupportedEl => {
     if (!!svg.match(`<${unsupportedEl}`)) {
       throw new Error(
@@ -36,11 +36,11 @@ function hasOnlySupportedElements(svg) {
     }
   });
 
-  return true;
+  return false;
 }
 
 module.exports = {
   isSvgFileName,
   fileNameProvided,
-  hasOnlySupportedElements,
+  containsUnsupportedElements,
 };

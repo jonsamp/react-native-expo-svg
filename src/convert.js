@@ -1,7 +1,7 @@
 const SVGO = require('svgo');
 const startCase = require('lodash.startcase');
 const { elements, attributes } = require('./dictionaries.js');
-const { hasOnlySupportedElements } = require('./errors');
+const { containsUnsupportedElements } = require('./errors');
 
 const svgo = new SVGO({
   plugins: [
@@ -25,47 +25,49 @@ async function optimizeSvg(data) {
 }
 
 async function convertSvg(data) {
-  const svg = await optimizeSvg(data);
+  let svg = await optimizeSvg(data);
 
-  if (!hasOnlySupportedElements(svg)) return;
+  if (containsUnsupportedElements(svg)) return;
 
-  let newsvg = svg;
   let usedElements = [];
 
+  // replace all svg elements
   elements.forEach(el => {
     const opening = new RegExp(`<${el.element}`, 'g');
     const closing = new RegExp(`</${el.element}`, 'g');
 
-    if (newsvg.match(opening)) {
+    if (svg.match(opening)) {
       usedElements.push(el.rnElement);
-    }
 
-    const result = newsvg
-      .replace(opening, `<${el.rnElement}`)
-      .replace(closing, `</${el.rnElement}`);
-    newsvg = result;
+      const result = svg
+        .replace(opening, `<${el.rnElement}`)
+        .replace(closing, `</${el.rnElement}`);
+      svg = result;
+    }
   });
 
+  // replace all svg attributes
   attributes.forEach(attr => {
-    if (newsvg.match(attr)) {
+    if (svg.match(attr)) {
       const attrMatcher = new RegExp(attr, 'g');
       const upperCasedAttr = attr
         .split('-')
         .map(i => startCase(i))
         .join('');
-      const convertedAttr =
+      const camelCaseAttr =
         upperCasedAttr.charAt(0).toLowerCase() + upperCasedAttr.slice(1);
-      const result = newsvg.replace(attrMatcher, convertedAttr);
-      newsvg = result;
+      const result = svg.replace(attrMatcher, camelCaseAttr);
+      svg = result;
     }
   });
 
-  newsvg = newsvg
+  // convert width and height to numbers
+  const resultSvg = svg
     .replace(/width=\"(\d+)\"/, `width={$1}`)
     .replace(/height=\"(\d+)\"/, `height={$1}`);
 
   return {
-    RNSvg: newsvg,
+    RNSvg: resultSvg,
     usedElements,
   };
 }
