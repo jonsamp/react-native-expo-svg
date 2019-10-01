@@ -1,6 +1,6 @@
 {
   "name": "react-native-expo-svg",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Convert .svg files to Expo-friendly React Native Svg components.",
   "main": "./index.js",
   "scripts": {
