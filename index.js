@@ -14,7 +14,9 @@ const svgo = new SVGO({
 });
 
 const [, , ...args] = process.argv;
+const filepath = args[0].split('/');
 const filename = args[0];
+const iconFileName = filepath[filepath.length - 1];
 
 if (!filename) {
   console.log('Expected a file name.');
@@ -111,7 +113,7 @@ fs.readFile(filename, 'utf8', function(err, data) {
       console.log('');
     } else {
       const IconName =
-        startCase(`${filename.replace('.svg', '')}`)
+        startCase(`${iconFileName.replace('.svg', '')}`)
           .replace(/-/g, '')
           .replace(/\s+/g, '') + 'Icon';
       const expoSvgComponent = `
@@ -128,7 +130,7 @@ export default ${IconName};
 `.trim();
       fs.writeFile(`${IconName}.js`, expoSvgComponent, 'utf8', function(err) {
         if (err) return console.log(err);
-        console.log(`✨ Saved as ${IconName}.js`);
+        console.log(`✨ Saved as ${IconName}.js in the current directory.`);
       });
     }
   });
