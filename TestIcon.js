@@ -1,10 +1,10 @@
 import React from 'react';
-import { Svg, Path } from 'react-native-svg'
+import { Path, Svg } from 'react-native-svg'
 
 function TestIcon() {
-  return (
-    <Svg width={41} height={32} viewBox="0 0 41 32"><Path d="M34.212 12.79a6.11 6.11 0 0 1 .783-.05c3.317 0 6.005 2.665 6.005 5.955 0 3.289-2.688 5.955-6.005 5.955a6.01 6.01 0 0 1-4.051-1.56C27.991 28.38 23.288 32 17.234 32 6.49 32 .079 20.03 0 8.706c-.078-11.324 34.468-11.889 34.468 0 0 1.373-.087 2.74-.256 4.083zm.783 8.909c1.673 0 3.03-1.345 3.03-3.004 0-1.66-1.357-3.005-3.03-3.005-1.673 0-3.029 1.345-3.029 3.005 0 1.659 1.356 3.004 3.03 3.004z" fill="#000" fillRule="evenodd"/></Svg>
-  );
+return (
+  <Svg width={29} height={40} viewBox="0 0 29 40" fill="none"><Path d="M5.65 38.123h20.236" stroke="#000" strokeWidth="2" strokeLinecap="round"/><Path d="M6.77 38.124v-24.6h21.016s-2.928 2.488-2.928 4.2v20.4" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><Path d="M6.77 17.612c-5.345 0-5.345.011-5.345 6.668s0 6.657 5.345 6.657" stroke="#000" strokeWidth="2"/><Path clipRule="evenodd" d="M24.443 10.902c0-4.299-3.884-7.783-8.675-7.783-4.79 0-8.674 3.484-8.674 7.783h17.349z" stroke="#000" strokeWidth="2" strokeLinejoin="round"/><Path fillRule="evenodd" clipRule="evenodd" d="M15.768 3.481a1.538 1.538 0 1 0 0-3.075 1.538 1.538 0 0 0 0 3.075z" fill="#000"/><Path d="M9.814 26.55h12M15.966 10.902v15.424" stroke="#000" strokeWidth="2" strokeLinecap="round"/></Svg>
+);
 }
 
 export default TestIcon;
