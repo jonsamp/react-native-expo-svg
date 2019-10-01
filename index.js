@@ -98,6 +98,7 @@ fs.readFile(filename, 'utf8', function(err, data) {
 
     newsvg = newsvg
       .replace(/fill\-rule/g, 'fillRule')
+      .replace(/clip\-rule/g, 'clipRule')
       .replace(/stroke-width/g, 'strokeWidth')
       .replace(/stroke-linecap/g, 'strokeLinecap')
       .replace(/stroke-linejoin/g, 'strokeLinejoin')
