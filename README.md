@@ -1,5 +1,7 @@
 # react-native-expo-svg
 
+![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=acorn&package-manager=npm_and_yarn&previous-version=5.7.3&new-version=5.7.4)
+
 Convert .svg files to Expo-friendly Svg components.
 
 ## Installation
