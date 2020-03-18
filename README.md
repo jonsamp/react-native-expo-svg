@@ -4,6 +4,10 @@
 
 Convert .svg files to Expo-friendly Svg components.
 
+## Try it out
+
+Try out the [beta web UI](https://jonsamp.dev/react-native-expo-svg).
+
 ## Installation
 
 ```bash
